@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tasks", schema = "todolist1", catalog = "")
+@Table(name = "tasks", schema = "todolist1")
 
 public class Task {
     private int id;
@@ -12,7 +12,16 @@ public class Task {
     private String name;
     private String description;
 
+    public Task(int userId, String name, String description) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Task() {}
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;

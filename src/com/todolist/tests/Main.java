@@ -1,53 +1,28 @@
 package com.todolist.tests;
 
+import com.todolist.models.HibernateToDoListDAO;
 import com.todolist.models.data.Task;
 import com.todolist.models.data.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 public class Main {
 
+    public static void main(final String[] args) {
 
-    public static void main(final String[] args) throws Exception {
+        HibernateToDoListDAO hibernateToDoListDAO = HibernateToDoListDAO.getInstance();
+        User someUser = new User("stankovic100@gmail.com", "321321", "Yoav", "Saroya");
 
-        // create Hibernate configuration object
-        Configuration config = new Configuration().configure();
-
-
-        // create session factory
-        SessionFactory factory = config
-                .addAnnotatedClass(User.class).addAnnotatedClass(Task.class)
-                .buildSessionFactory();
-
-        // create a session
-        Session session = factory.getCurrentSession();
-
-
-        //use the session object to save java object
-        try {
-            //create a User object
-            System.out.println("Creating new user object");
-            User tempUser = new User();
-            tempUser.setEmail("stankovic100@gmail.com");
-            tempUser.setPassword("321321");
-            tempUser.setFirstName("Yoav");
-            tempUser.setLastName("Saroya");
-
-            //start a transaction
-            session.beginTransaction();
-
-            //save the user object
-            System.out.println("Saving the User...");
-            session.save(tempUser);
-
-            //commit transaction
-            session.getTransaction().commit();
-
-            System.out.println("Done!");
+        User updatedUser = hibernateToDoListDAO.registerUser(someUser);
+        if(updatedUser != null) {
+            System.out.println("User Created");
+            System.out.println(updatedUser);
+            Task someTask = new Task(updatedUser.getId(), "Cleaning The house", "Clean the house perfectly");
+            someTask = hibernateToDoListDAO.addOrUpdateTask(someTask);
+            if(someTask != null) {
+                System.out.println("Task Created");
+            }
         }
-        finally {
-            factory.close();
+        else {
+            System.out.println("User already exists");
         }
     }
 }

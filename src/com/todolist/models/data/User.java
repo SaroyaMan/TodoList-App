@@ -1,12 +1,11 @@
 package com.todolist.models.data;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "users", schema = "todolist1", catalog = "")
+@Table(name = "users", schema = "todolist1")
 public class User {
     private int id;
     private String email;
@@ -15,8 +14,17 @@ public class User {
     private String lastName;
     private Set<Task> tasks;
 
+    public User(String email, String password, String firstName, String lastName) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User() { }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -82,6 +90,11 @@ public class User {
     public int hashCode() {
 
         return Objects.hash(id, email, password, firstName, lastName);
+    }
+
+    @Override
+    public String toString() {
+        return getId() + ", " + getEmail() + ", " + getPassword() + ", " + getFirstName() + " " + getLastName();
     }
 
 

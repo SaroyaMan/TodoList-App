@@ -16,6 +16,8 @@
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
 
+        <property name="hibernate.id.new_generator_mappings">false</property>
+
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.todolist.models.data.Task"/>
