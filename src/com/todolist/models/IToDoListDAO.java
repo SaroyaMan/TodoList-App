@@ -7,10 +7,10 @@ public interface IToDoListDAO {
 
     // User methods
     User registerUser(User user);
-    User signIn(String username, String password);
+    User signIn(String email, String password);
 
     // Task methods
     List<Task> getUserTasks(int userId);
-    Task addOrUpdateTask(Task newTask);
-    void removeTask(int taskId);
+    Task createOrUpdateTask(Task newTask);
+    boolean removeTask(Task taskId);
 }

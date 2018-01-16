@@ -1,5 +1,7 @@
 package com.todolist.models.data;
 
+import com.todolist.errors.TodoListException;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -12,9 +14,12 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private Set<Task> tasks;
 
-    public User(String email, String password, String firstName, String lastName) {
+    public User(String email, String password, String firstName, String lastName) throws TodoListException {
+        if(email == null || password == null || firstName == null || lastName == null) {
+            throw new TodoListException("user fields cannot be null");
+        }
+
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -95,15 +100,5 @@ public class User {
     @Override
     public String toString() {
         return getId() + ", " + getEmail() + ", " + getPassword() + ", " + getFirstName() + " " + getLastName();
-    }
-
-
-    @OneToMany
-    public Set<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
     }
 }

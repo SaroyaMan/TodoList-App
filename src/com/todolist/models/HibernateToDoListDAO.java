@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 
 import java.util.List;
 
@@ -15,9 +16,13 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     private Configuration config;
     private SessionFactory factory;
 
+    // Password encryptor
+    private BasicPasswordEncryptor passwordEncryptor;
+
     private static HibernateToDoListDAO instance;
 
     private HibernateToDoListDAO() {
+
         // create Hibernate configuration object
         config = new Configuration().configure();
 
@@ -26,6 +31,8 @@ public class HibernateToDoListDAO implements IToDoListDAO {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Task.class)
                 .buildSessionFactory();
+
+        passwordEncryptor = new BasicPasswordEncryptor();
     }
 
     public static HibernateToDoListDAO getInstance() {
@@ -52,8 +59,11 @@ public class HibernateToDoListDAO implements IToDoListDAO {
                 throw new HibernateException("User with that email address already exists");
             }
 
+            // encrypt the password
+            String encryptedPassword = passwordEncryptor.encryptPassword(user.getPassword());
+            user.setPassword(encryptedPassword);
+
             // save the user object
-            System.out.println("Saving the User...");
             session.save(user);
 
             // commit transaction
@@ -70,17 +80,59 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     }
 
     @Override
-    public User signIn(String username, String password) {
-        return null;
+    public User signIn(String email, String password) {
+
+        // create a session
+        Session session = factory.getCurrentSession();
+        User user;
+        try {
+
+            user = (User) session.createQuery("FROM User u WHERE u.email = :email")
+                    .setParameter("email", email)
+                    .getSingleResult();
+
+
+            if(user != null && passwordEncryptor.checkPassword(password, user.getPassword())) {
+                return user;
+            }
+            else {
+                // password incorrect
+                return null;
+            }
+        }
+        catch(HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<Task> getUserTasks(int userId) {
-        return null;
+        // create a session
+        Session session = factory.getCurrentSession();
+
+        try {
+            // start a transaction
+            session.beginTransaction();
+
+            List tasks = session.createQuery("FROM Task t WHERE t.userId = :userId")
+                    .setParameter("userId", userId)
+                    .getResultList();
+
+            // commit transaction
+            session.getTransaction().commit();
+
+            return (List<Task>) tasks;
+        }
+        catch(HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return null;
+        }
     }
 
     @Override
-    public Task addOrUpdateTask(Task newTask) {
+    public Task createOrUpdateTask(Task newTask) {
         // create a session
         Session session = factory.getCurrentSession();
 
@@ -89,7 +141,6 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             session.beginTransaction();
 
             // save the task object
-            System.out.println("Saving the Task...");
             session.saveOrUpdate(newTask);
 
             // commit transaction
@@ -105,7 +156,27 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     }
 
     @Override
-    public void removeTask(int taskId) {
+    public boolean removeTask(Task task) {
+        // create a session
+        Session session = factory.getCurrentSession();
 
+        try {
+            // start a transaction
+            session.beginTransaction();
+
+            // save the task object
+            session.delete(task);
+
+            // commit transaction
+            session.getTransaction().commit();
+
+            return true;
+        }
+
+        catch(HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return false;
+        }
     }
 }

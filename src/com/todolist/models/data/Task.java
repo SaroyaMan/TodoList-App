@@ -77,4 +77,9 @@ public class Task {
 
         return Objects.hash(id, userId, name, description);
     }
+
+    @Override
+    public String toString() {
+        return getId() + ", " + getUserId() + "," + getName() + ", " + getDescription();
+    }
 }
