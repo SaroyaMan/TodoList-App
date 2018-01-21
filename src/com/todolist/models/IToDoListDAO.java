@@ -13,7 +13,7 @@ public interface IToDoListDAO {
     // Task methods
     List<Task> getUserTasks(int userId);
     Task createOrUpdateTask(Task newTask);
-    boolean removeTask(Task taskId);
+    void removeTask(int taskId);
 
     User getUserByToken(String token) throws TodoListException;
 }

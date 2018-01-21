@@ -45,7 +45,7 @@ $("document").ready(function() {       //Main
             }
             else {                  // SUCCESS
                 toast.showToast('success', 'Login succeed! Redirecting to Homepage...', '15000');
-                setTimeout( () => window.location.replace("index.jsp"), 1000);
+                setTimeout( () => window.location.replace("/home"), 1000);
             }
         });
         // In order to prevent redirecting when form data sent

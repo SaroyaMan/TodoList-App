@@ -1,20 +1,11 @@
 <%@ page import="com.todolist.models.data.User" %>
 <%@ page import="com.todolist.models.data.Task" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.todolist.models.HibernateToDoListDAO" %>
 <%
-    HttpSession ses = request.getSession();
-
-    User user = null;
-    List<Task> taskList = null;
-
-    if(ses.getAttribute("iTaskAppUser") != null) {
-        user = (User) ses.getAttribute("iTaskAppUser");
-        taskList = HibernateToDoListDAO.getInstance().getUserTasks(user.getId());
-
-    }
-    if(user == null) {
-        response.sendRedirect("login.html");
+    User user = (User) request.getAttribute("USER");
+    List<Task> taskList = (List<Task>) request.getAttribute("TASKS");
+    if(user == null || taskList == null) {
+        response.sendRedirect("home");
         return;
     }
 %>
@@ -50,7 +41,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
         <link rel="stylesheet" href="assets/css/stylesheet.css">
-        <script src="assets/utils/toast.js"></script>
+        <link rel="stylesheet" href="assets/utils/css/loader.css">
+        <script src="assets/utils/scripts/toast.js"></script>
         <script src="assets/scripts/app.js"></script>
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
@@ -73,9 +65,9 @@
                             <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
                         </li>
                     </ul>
-                    <b class="navbar-text ml-auto text-success">
-                        Welcome Lorem Ipsum!
-                    </b>
+                    <span class="navbar-text ml-auto text-info font-weight-bold">
+                        Welcome <%= user.getFirstName() + " " + user.getLastName()%>!
+                    </span>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
@@ -103,6 +95,8 @@
                             out.println("<th scopr='row'>" + t.getId() + "</th>");
                             out.println("<td>" + t.getName() + "</td>");
                             out.println("<td>" + t.getDescription() + "</td>");
+                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
+                            out.println("| <a href=# class='text-info font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");
                         }
                     %>

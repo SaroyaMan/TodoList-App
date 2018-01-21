@@ -7,30 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb27317e-f0a4-4e0c-8f61-9fa97b724ee3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_servlet_jsp_jstl_1_2_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/css/stylesheet.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/scripts/auth/login.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/scripts/auth/register.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/utils/toast.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/assets/utils/css/loader.css" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Todo_List.iml" afterPath="$PROJECT_DIR$/Todo_List.iml" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/WEB-INF/classes/com/todolist/models/HibernateToDoListDAO.class" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/WEB-INF/classes/com/todolist/models/HibernateToDoListDAO.class" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/WEB-INF/classes/com/todolist/models/IToDoListDAO.class" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/WEB-INF/classes/com/todolist/models/IToDoListDAO.class" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/css/login.css" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/scripts/app.js" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/scripts/app.js" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/scripts/auth/login.js" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/scripts/auth/login.js" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/login.html" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/login.html" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/register.html" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/register.html" />
       <change beforePath="$PROJECT_DIR$/out/production/Todo_List/com/todolist/models/HibernateToDoListDAO.class" afterPath="$PROJECT_DIR$/out/production/Todo_List/com/todolist/models/HibernateToDoListDAO.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Todo_List/com/todolist/models/IToDoListDAO.class" afterPath="$PROJECT_DIR$/out/production/Todo_List/com/todolist/models/IToDoListDAO.class" />
+      <change beforePath="$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java" afterPath="$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java" />
       <change beforePath="$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java" afterPath="$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java" />
       <change beforePath="$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java" afterPath="$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java" />
       <change beforePath="$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java" afterPath="$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/login.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" afterPath="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" />
       <change beforePath="$PROJECT_DIR$/web/assets/scripts/app.js" afterPath="$PROJECT_DIR$/web/assets/scripts/app.js" />
+      <change beforePath="$PROJECT_DIR$/web/assets/scripts/auth/login.js" afterPath="$PROJECT_DIR$/web/assets/scripts/auth/login.js" />
+      <change beforePath="$PROJECT_DIR$/web/assets/utils/toast.js" afterPath="$PROJECT_DIR$/web/assets/utils/scripts/toast.js" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
       <change beforePath="$PROJECT_DIR$/web/login.html" afterPath="$PROJECT_DIR$/web/login.html" />
       <change beforePath="$PROJECT_DIR$/web/register.html" afterPath="$PROJECT_DIR$/web/register.html" />
@@ -87,11 +80,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="403">
+              <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,21 +92,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IToDoListDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java">
+      <file leaf-file-name="TaskServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+            <state relative-caret-position="500">
+              <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IToDoListDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="93" column="73" lean-forward="false" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
+            <state relative-caret-position="552">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="e#5843#5849#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/assets/scripts/auth/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-16">
+              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -122,9 +157,11 @@
       <file leaf-file-name="HibernateToDoListDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="328">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,8 +169,18 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/assets/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="1000">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth_stylesheet.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/assets/css/auth_stylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2550">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -175,7 +222,16 @@
       <find>addcoo</find>
       <find>logout</find>
       <find>log</find>
+      <find>oncli</find>
+      <find>onclick</find>
+      <find>removeTask</find>
+      <find>succ</find>
+      <find>loaderContent</find>
+      <find>libs</find>
     </findStrings>
+    <dirStrings>
+      <dir>D:\Softwares\intelliJ Output\Todo_List\web\assets\scripts</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -198,23 +254,25 @@
         <option value="src:table:/52b08e6f/baecd4a6-e89e-4d1c-ab81-0835c2880553/todolist1.users" />
         <option value="$PROJECT_DIR$/src/com/todolist/errors/TodoListException.java" />
         <option value="$PROJECT_DIR$/src/com/todolist/tests/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java" />
         <option value="$PROJECT_DIR$/web/assets/css/login.css" />
-        <option value="$PROJECT_DIR$/web/register.html" />
-        <option value="$PROJECT_DIR$/web/login.html" />
         <option value="$PROJECT_DIR$/src/com/todolist/models/data/User.java" />
         <option value="$PROJECT_DIR$/web/assets/utils/toast.js" />
         <option value="$PROJECT_DIR$/web/assets/css/stylesheet.css" />
-        <option value="$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java" />
-        <option value="$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java" />
         <option value="$PROJECT_DIR$/src/com/todolist/controllers/IndexServlet.java" />
         <option value="$PROJECT_DIR$/web/assets/scripts/auth/register.js" />
         <option value="$PROJECT_DIR$/web/home.jsp" />
-        <option value="$PROJECT_DIR$/web/assets/scripts/app.js" />
-        <option value="$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java" />
-        <option value="$PROJECT_DIR$/web/assets/scripts/auth/login.js" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java" />
+        <option value="$PROJECT_DIR$/web/assets/scripts/app.js" />
+        <option value="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" />
+        <option value="$PROJECT_DIR$/web/assets/utils/css/loader.css" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/login.html" />
+        <option value="$PROJECT_DIR$/web/register.html" />
+        <option value="$PROJECT_DIR$/web/assets/scripts/auth/login.js" />
       </list>
     </option>
   </component>
@@ -243,7 +301,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="282" />
     <option name="y" value="72" />
     <option name="width" value="960" />
@@ -346,8 +404,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -396,29 +453,15 @@
               <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo_List" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo_List" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,16 +485,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Softwares\intelliJ Output\Todo_List\lib" />
-      <recent name="D:\Softwares\intelliJ Output\Todo_List\web\libs" />
-      <recent name="D:\Softwares\intelliJ Output\Todo_List\web\assets\images" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Softwares\intelliJ Output\Todo_List\web\assets\utils\scripts" />
       <recent name="D:\Softwares\intelliJ Output\Todo_List\web\assets" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.todolist.models.data" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Softwares\intelliJ Output\Todo_List\lib" />
+      <recent name="D:\Softwares\intelliJ Output\Todo_List\web\libs" />
+      <recent name="D:\Softwares\intelliJ Output\Todo_List\web\assets\images" />
       <recent name="D:\Softwares\intelliJ Output\Todo_List\web\assets" />
     </key>
   </component>
@@ -717,15 +761,16 @@
       <workItem from="1516431562349" duration="11856000" />
       <workItem from="1516491073307" duration="204000" />
       <workItem from="1516491385721" duration="7414000" />
-      <workItem from="1516498840655" duration="7225000" />
+      <workItem from="1516498840655" duration="14984000" />
+      <workItem from="1516542551304" duration="1029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64085000" />
+    <option name="totallyTimeSpent" value="72873000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -738,7 +783,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.49340865" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4124294" sideWeight="0.50208336" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4124294" sideWeight="0.50208336" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -746,10 +791,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881355" sideWeight="0.50805587" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.50805587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1858217" sideWeight="0.51264757" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18796992" sideWeight="0.48175183" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19065522" sideWeight="0.48175183" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18802084" sideWeight="0.5182482" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -771,7 +816,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="42" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="55" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -804,14 +857,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -824,7 +869,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3175">
           <caret line="135" column="34" lean-forward="false" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -858,7 +905,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3175">
           <caret line="135" column="34" lean-forward="false" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -917,7 +966,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,21 +1089,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.js" />
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="28" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_74/src.zip!/java/util/concurrent/ScheduledThreadPoolExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -1060,14 +1096,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/auth_stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1825">
-          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/utils/toast.js">
+    <entry file="file://$PROJECT_DIR$/web/assets/utils/scripts/toast.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
@@ -1106,26 +1135,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="35" column="19" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/IndexServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="54" column="14" lean-forward="true" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/IndexServlet.java" />
     <entry file="file://$PROJECT_DIR$/web/assets/scripts/auth/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1146,33 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,27 +1170,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/scripts/auth/login.js">
+    <entry file="file://$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="47" column="74" lean-forward="false" selection-start-line="47" selection-start-column="74" selection-end-line="47" selection-end-column="74" />
+        <state relative-caret-position="300">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/todolist/models/IToDoListDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/TaskServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+        <state relative-caret-position="500">
+          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/utils/css/loader.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/css/auth_stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="93" column="73" lean-forward="false" selection-start-line="93" selection-start-column="73" selection-end-line="93" selection-end-column="73" />
+        <state relative-caret-position="552">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="e#5843#5849#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/scripts/auth/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/todolist/models/HibernateToDoListDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/todolist/controllers/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

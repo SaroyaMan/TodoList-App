@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UserServlet", urlPatterns = {"/registerUser", "/loginUser", "/logoutUser"})
+@WebServlet(name = "UserServlet", urlPatterns = {"/registerUser", "/loginUser", "/logoutUser", "/home"})
 
 public class UserServlet extends HttpServlet {
 
@@ -23,6 +23,42 @@ public class UserServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         toDoListDAO = HibernateToDoListDAO.getInstance();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        String urlPattern = req.getRequestURI();
+
+        switch (urlPattern) {
+            case "/home":
+                initUser(req, res);
+                break;
+
+            default: break;
+        }
+    }
+
+    private void initUser(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        HttpSession ses = req.getSession();
+
+        User user = null;
+        List<Task> taskList = null;
+
+        if(ses.getAttribute("iTaskAppUser") != null) {
+            user = (User) ses.getAttribute("iTaskAppUser");
+            taskList = HibernateToDoListDAO.getInstance().getUserTasks(user.getId());
+
+        }
+        if(user == null) {
+            res.sendRedirect("login.html");
+            return;
+        }
+
+        req.setAttribute("USER" , user);
+        req.setAttribute("TASKS", taskList);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        dispatcher.forward(req, res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {

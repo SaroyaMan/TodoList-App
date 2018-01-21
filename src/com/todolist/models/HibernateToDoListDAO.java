@@ -163,26 +163,27 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     }
 
     @Override
-    public boolean removeTask(Task task) {
+    public void removeTask(int taskId) {
         // create a session
         Session session = factory.getCurrentSession();
 
         try {
+
             // start a transaction
             session.beginTransaction();
 
-            // save the task object
-            session.delete(task);
+            // delete the task object
+            session.createQuery("delete from Task where id=:id")
+                    .setParameter("id", taskId)
+                    .executeUpdate();
+
 
             // commit transaction
             session.getTransaction().commit();
-
-            return true;
         }
 
         catch(HibernateException e) {
             session.getTransaction().rollback();
-            return false;
         }
     }
 
