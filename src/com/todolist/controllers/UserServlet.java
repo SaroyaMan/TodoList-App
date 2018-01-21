@@ -3,17 +3,17 @@ package com.todolist.controllers;
 import com.todolist.errors.TodoListException;
 import com.todolist.models.HibernateToDoListDAO;
 import com.todolist.models.IToDoListDAO;
+import com.todolist.models.data.Task;
 import com.todolist.models.data.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "UserServlet", urlPatterns = {"/register", "/signin"})
+@WebServlet(name = "UserServlet", urlPatterns = {"/registerUser", "/loginUser", "/logoutUser"})
 
 public class UserServlet extends HttpServlet {
 
@@ -30,19 +30,23 @@ public class UserServlet extends HttpServlet {
         String urlPattern = req.getRequestURI();
 
         switch(urlPattern) {
-            case "/register":
+            case "/registerUser":
                 registerUser(req, res);
                 break;
 
-            case "/signin":
+            case "/loginUser":
                 loginUser(req, res);
+                break;
+
+            case "/logoutUser":
+                logout(req, res);
                 break;
 
             default: res.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
 
-    private void registerUser(HttpServletRequest req, HttpServletResponse res) throws IOException {
+    private void registerUser(HttpServletRequest req, HttpServletResponse res) {
 
         try {
             String email = req.getParameter("email");
@@ -52,35 +56,49 @@ public class UserServlet extends HttpServlet {
 
             User newUser = new User(email, password, firstName, lastName);
 
-            newUser = toDoListDAO.registerUser(newUser);
+            toDoListDAO.registerUser(newUser);
 
-            req.setAttribute("USER", newUser);
-
-            RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-            dispatcher.forward(req, res);
+            res.setHeader("IS_VERIFY", "1");
         }
-        catch (TodoListException | ServletException e) {
-            e.printStackTrace();
-            res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        catch (TodoListException e) {
+            res.setHeader("IS_VERIFY", "0");
+            res.setHeader("ERROR", e.getMessage());
         }
     }
 
-    private void loginUser(HttpServletRequest req, HttpServletResponse res) throws IOException {
+    private void loginUser(HttpServletRequest req, HttpServletResponse res) {
 
         try {
             String email = req.getParameter("email");
             String password = req.getParameter("password");
+            boolean isRememberMe = Boolean.parseBoolean(req.getParameter("rememberMe"));
 
             User signedUser = toDoListDAO.signIn(email, password);
 
-            req.setAttribute("USER", signedUser);
+            HttpSession session = req.getSession();
+            session.setMaxInactiveInterval(isRememberMe? 60 * 60 * 24 * 365 : 0);
+            session.setAttribute("iTaskAppUser", signedUser);
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+            res.setHeader("IS_VERIFY", "1");
+        }
+        catch (TodoListException e) {
+            res.setHeader("IS_VERIFY", "0");
+            res.setHeader("ERROR", e.getMessage());
+        }
+    }
+
+    private void logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        HttpSession session = req.getSession();
+        session.invalidate();
+    }
+
+    private void redirectToHomePage(HttpServletRequest req, HttpServletResponse res) {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        try {
             dispatcher.forward(req, res);
         }
-        catch (ServletException e) {
+        catch (ServletException | IOException e) {
             e.printStackTrace();
-            res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.todolist.models;
 
+import com.todolist.errors.TodoListException;
 import com.todolist.models.data.Task;
 import com.todolist.models.data.User;
 import org.hibernate.HibernateException;
@@ -40,7 +41,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     }
 
     @Override
-    public User registerUser(User user) {
+    public void registerUser(User user) throws TodoListException {
 
         // create a session
         Session session = factory.getCurrentSession();
@@ -56,7 +57,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
                     .getResultList();
 
             if(!users.isEmpty()) {
-                throw new HibernateException("User with that email address already exists");
+                throw new TodoListException("User with that email address already exists");
             }
 
             // encrypt the password
@@ -68,41 +69,49 @@ public class HibernateToDoListDAO implements IToDoListDAO {
 
             // commit transaction
             session.getTransaction().commit();
-
-            return user;
         }
-        catch(HibernateException e) {
-            e.printStackTrace();
+        catch(HibernateException | TodoListException e) {
             session.getTransaction().rollback();
-            return null;
+            throw new TodoListException(e.getMessage());
         }
 
     }
 
     @Override
-    public User signIn(String email, String password) {
+    public User signIn(String email, String password) throws TodoListException {
 
         // create a session
         Session session = factory.getCurrentSession();
         User user;
         try {
 
-            user = (User) session.createQuery("FROM User u WHERE u.email = :email")
+            // start a transaction
+            session.beginTransaction();
+
+            List<User> users = (List<User>) session.createQuery("FROM User u WHERE u.email = :email")
                     .setParameter("email", email)
-                    .getSingleResult();
+                    .getResultList();
 
 
-            if(user != null && passwordEncryptor.checkPassword(password, user.getPassword())) {
+            if(users == null || users.isEmpty()) {
+                throw new TodoListException("User is not exist");
+            }
+
+            user = users.get(0);
+
+            session.getTransaction().commit();
+
+            if(passwordEncryptor.checkPassword(password, user.getPassword())) {
                 return user;
             }
+
             else {
-                // password incorrect
-                return null;
+                throw new TodoListException("Email or Password is incorrect");
             }
+
         }
         catch(HibernateException e) {
-            e.printStackTrace();
-            return null;
+            throw new TodoListException(e.getMessage());
         }
     }
 
@@ -125,7 +134,6 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             return (List<Task>) tasks;
         }
         catch(HibernateException e) {
-            e.printStackTrace();
             session.getTransaction().rollback();
             return null;
         }
@@ -149,7 +157,6 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             return newTask;
         }
         catch(HibernateException e) {
-            e.printStackTrace();
             session.getTransaction().rollback();
             return null;
         }
@@ -174,9 +181,39 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         }
 
         catch(HibernateException e) {
-            e.printStackTrace();
             session.getTransaction().rollback();
             return false;
+        }
+    }
+
+    @Override
+    public User getUserByToken(String token) throws TodoListException {
+        // create a session
+        Session session = factory.getCurrentSession();
+
+        try {
+            // start a transaction
+            session.beginTransaction();
+
+            List<User> users = (List<User>) session.createQuery("FROM User u WHERE u.email = :token")
+                    .setParameter("token", token)
+                    .getResultList();
+
+            if(users == null || users.isEmpty()) {
+                throw new TodoListException("User is not exist");
+            }
+
+            User user = users.get(0);
+
+            // commit transaction
+            session.getTransaction().commit();
+
+            return user;
+        }
+
+        catch(HibernateException e) {
+            session.getTransaction().rollback();
+            return null;
         }
     }
 }

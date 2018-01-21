@@ -1,0 +1,14 @@
+
+
+
+header, div, nav, main, section, aside, article {display: block}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+tbody tr {
+    cursor: pointer;
+}
