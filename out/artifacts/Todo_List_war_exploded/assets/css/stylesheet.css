@@ -1,6 +1,3 @@
-
-
-
 header, div, nav, main, section, aside, article {display: block}
 
 footer {
@@ -11,4 +8,8 @@ footer {
 
 tbody tr {
     cursor: pointer;
+}
+
+input, textarea {
+    width: 50% !important;
 }

@@ -1,19 +1,8 @@
-<%@ page import="com.todolist.models.data.User" %>
-<%@ page import="com.todolist.models.data.Task" %>
-<%@ page import="java.util.List" %>
-<%
-    User user = (User) request.getAttribute("USER");
-    List<Task> taskList = (List<Task>) request.getAttribute("TASKS");
-    if(user == null || taskList == null) {
-        response.sendRedirect("home");
-        return;
-    }
-%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!--Bootstrap 4 + jQuery-->
@@ -57,16 +46,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./task_form.jsp"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
+                            <a class="nav-link" href="./index.jsp"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
                         </li>
                     </ul>
-                    <%--<span class="navbar-text ml-auto text-info font-weight-bold">--%>
-                        <%--Welcome <%= user.getFirstName() + " " + user.getLastName()%>!--%>
-                    <%--</span>--%>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
@@ -77,30 +63,20 @@
         </header>
         <main>
             <div class="container-fluid">
-                <h2>My ToDo List</h2>
-                <table class="table table-hover table-striped">
-                    <thead class="thead-inverse">
-                    <tr>
-                        <th>#</th>
-                        <th><i class="fa fa-tags" aria-hidden="true"></i> Name</th>
-                        <th><i class="fa fa-info-circle" aria-hidden="true"></i> Description</th>
-                        <th><i class="fa fa-cogs" aria-hidden="true"></i> Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <%
-                        for(Task t : taskList) {
-                            out.println("<tr>");
-                            out.println("<th scopr='row'>" + t.getId() + "</th>");
-                            out.println("<td>" + t.getName() + "</td>");
-                            out.println("<td>" + t.getDescription() + "</td>");
-                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
-                            out.println("| <a href=# class='text-info font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
-                            out.println("</tr>");
-                        }
-                    %>
-                    </tbody>
-                </table>
+                <h2>Create a new task</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Task Name</label>
+                        <input type="text" class="form-control" id="name"
+                               placeholder="Insert task name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Task Description</label>
+                        <textarea class="form-control" id="description"
+                                  rows="4" placeholder="Insert task description..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </form>
             </div>
 
         </main>
