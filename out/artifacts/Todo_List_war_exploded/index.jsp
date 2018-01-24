@@ -14,6 +14,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="assets/images/logo_icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!--Bootstrap 4 + jQuery-->
@@ -61,7 +62,7 @@
                             <a class="nav-link" href="#"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./task_form.jsp"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
+                            <a class="nav-link" href="task"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
                         </li>
                     </ul>
                     <%--<span class="navbar-text ml-auto text-info font-weight-bold">--%>
@@ -95,7 +96,7 @@
                             out.println("<td>" + t.getName() + "</td>");
                             out.println("<td>" + t.getDescription() + "</td>");
                             out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
-                            out.println("| <a href=# class='text-info font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
+                            out.println("| <a href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");
                         }
                     %>

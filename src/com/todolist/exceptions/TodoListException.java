@@ -1,4 +1,4 @@
-package com.todolist.errors;
+package com.todolist.exceptions;
 
 public class TodoListException extends Exception {
 

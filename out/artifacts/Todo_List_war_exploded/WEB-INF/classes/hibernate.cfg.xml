@@ -11,12 +11,17 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Select our SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--<property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
 
         <property name="hibernate.id.new_generator_mappings">false</property>
+
+        <property name="connection.autoReconnect">true</property>
+        <property name="connection.autoReconnectForPools">true</property>
+        <property name="connection.is-connection-validation-required">true</property>
 
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>

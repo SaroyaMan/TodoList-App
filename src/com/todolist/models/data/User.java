@@ -1,10 +1,9 @@
 package com.todolist.models.data;
 
-import com.todolist.errors.TodoListException;
+import com.todolist.exceptions.TodoListException;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "users", schema = "todolist1")

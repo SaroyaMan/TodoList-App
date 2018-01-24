@@ -1,6 +1,6 @@
 package com.todolist.models;
 
-import com.todolist.errors.TodoListException;
+import com.todolist.exceptions.TodoListException;
 import com.todolist.models.data.Task;
 import com.todolist.models.data.User;
 import org.hibernate.HibernateException;
@@ -74,7 +74,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             session.getTransaction().rollback();
             throw new TodoListException(e.getMessage());
         }
-
+        finally {
+            closeSession(session);
+        }
     }
 
     @Override
@@ -113,6 +115,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         catch(HibernateException e) {
             throw new TodoListException(e.getMessage());
         }
+        finally {
+            closeSession(session);
+        }
     }
 
     @Override
@@ -137,6 +142,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             session.getTransaction().rollback();
             return null;
         }
+        finally {
+            closeSession(session);
+        }
     }
 
     @Override
@@ -159,6 +167,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         catch(HibernateException e) {
             session.getTransaction().rollback();
             return null;
+        }
+        finally {
+            closeSession(session);
         }
     }
 
@@ -185,36 +196,43 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         catch(HibernateException e) {
             session.getTransaction().rollback();
         }
+        finally {
+            closeSession(session);
+        }
     }
 
     @Override
-    public User getUserByToken(String token) throws TodoListException {
+    public Task getTaskById(int taskId) {
         // create a session
         Session session = factory.getCurrentSession();
 
         try {
+
             // start a transaction
             session.beginTransaction();
 
-            List<User> users = (List<User>) session.createQuery("FROM User u WHERE u.email = :token")
-                    .setParameter("token", token)
-                    .getResultList();
-
-            if(users == null || users.isEmpty()) {
-                throw new TodoListException("User is not exist");
-            }
-
-            User user = users.get(0);
+            // delete the task object
+            Task theTask = (Task) session.createQuery("FROM Task where id=:id")
+                    .setParameter("id", taskId)
+                    .getSingleResult();
 
             // commit transaction
             session.getTransaction().commit();
-
-            return user;
+            return theTask;
         }
 
         catch(HibernateException e) {
             session.getTransaction().rollback();
             return null;
+        }
+        finally {
+            closeSession(session);
+        }
+    }
+
+    private void closeSession(Session session) {
+        if(session != null) {
+            session.close();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.todolist.models;
-import com.todolist.errors.TodoListException;
+import com.todolist.exceptions.TodoListException;
 import com.todolist.models.data.*;
 
 import java.util.List;
@@ -14,6 +14,5 @@ public interface IToDoListDAO {
     List<Task> getUserTasks(int userId);
     Task createOrUpdateTask(Task newTask);
     void removeTask(int taskId);
-
-    User getUserByToken(String token) throws TodoListException;
+    Task getTaskById(int taskId);
 }

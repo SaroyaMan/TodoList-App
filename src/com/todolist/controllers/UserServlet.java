@@ -1,6 +1,6 @@
 package com.todolist.controllers;
 
-import com.todolist.errors.TodoListException;
+import com.todolist.exceptions.TodoListException;
 import com.todolist.models.HibernateToDoListDAO;
 import com.todolist.models.IToDoListDAO;
 import com.todolist.models.data.Task;
@@ -18,6 +18,7 @@ import java.util.List;
 public class UserServlet extends HttpServlet {
 
     private IToDoListDAO toDoListDAO;
+    private final int ONE_YEAR = 60 * 60 * 24 * 365;
 
     @Override
     public void init() throws ServletException {
@@ -47,7 +48,6 @@ public class UserServlet extends HttpServlet {
         if(ses.getAttribute("iTaskAppUser") != null) {
             user = (User) ses.getAttribute("iTaskAppUser");
             taskList = HibernateToDoListDAO.getInstance().getUserTasks(user.getId());
-
         }
         if(user == null) {
             res.sendRedirect("login.html");
@@ -57,8 +57,7 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("USER" , user);
         req.setAttribute("TASKS", taskList);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-        dispatcher.forward(req, res);
+        req.getRequestDispatcher("index.jsp").forward(req, res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -112,7 +111,7 @@ public class UserServlet extends HttpServlet {
             User signedUser = toDoListDAO.signIn(email, password);
 
             HttpSession session = req.getSession();
-            session.setMaxInactiveInterval(isRememberMe? 60 * 60 * 24 * 365 : 0);
+            session.setMaxInactiveInterval(isRememberMe? ONE_YEAR : 0);
             session.setAttribute("iTaskAppUser", signedUser);
 
             res.setHeader("IS_VERIFY", "1");
