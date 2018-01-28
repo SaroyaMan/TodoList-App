@@ -39,18 +39,22 @@
         <!--<img src="assets/images/logo.png">-->
         <div id="authPage">
             <h1>Login</h1>
+            <%
+                if(request.getAttribute("FULL_NAME") != null) {
+                    out.println("<h5 class='text-info'>Welcome Back " + request.getAttribute("FULL_NAME") + "</h5>");
+                }
+            %>
+            <%--<h5 class="text-info">Welcome Back ${FULL_NAME}</h5>--%>
             <form method="POST" autocomplete="off" id="loginForm">
                 <input type="email" class="myTxtInput" name="email" placeholder="Email" required="required" />
                 <input type="password" class="myTxtInput" name="password" placeholder="Password" required="required" />
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="isRemembmer" id="rememberMeId">
-                    <label class="form-check-label" for="rememberMeId">
-                        Remember Me
-                    </label>
+                    <label class="form-check-label" for="rememberMeId">Remember Me</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
             </form>
-            <p class="message">Not Registered? <a href="/register.html">Create an account</a></p>
+            <p class="message">Not Registered? <a href="register.html">Create an account</a></p>
         </div>
         <div id="loaderContent">
             <div id="loader"></div>

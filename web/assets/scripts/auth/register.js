@@ -54,7 +54,7 @@ $("document").ready(function() {       //Main
             }
             else {                  // SUCCESS
                 toast.showToast('success', 'Register succeed! Redirecting to login...', '15000');
-                setTimeout( () => window.location.replace("login.html"), 2000);
+                setTimeout( () => window.location.replace("login.jsp"), 2000);
             }
         });
 

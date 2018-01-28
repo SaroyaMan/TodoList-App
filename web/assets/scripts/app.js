@@ -10,7 +10,7 @@ let logout = function () {
         success: function(response){},
         error: function(response) {},
     }).done(function (data, textStatus, xhr) {
-        window.location.replace("login.html");
+        window.location.replace("login");
     });
     return false;
 };

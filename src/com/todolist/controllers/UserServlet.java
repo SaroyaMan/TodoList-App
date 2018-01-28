@@ -11,9 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
-@WebServlet(name = "UserServlet", urlPatterns = {"/registerUser", "/loginUser", "/logoutUser", "/home"})
+@WebServlet(name = "UserServlet", urlPatterns = {"/registerUser", "/loginUser", "/logoutUser", "/home", "/login"})
 
 public class UserServlet extends HttpServlet {
 
@@ -35,6 +38,10 @@ public class UserServlet extends HttpServlet {
                 initUser(req, res);
                 break;
 
+            case "/login":
+                moveToLoginPage(req, res);
+                break;
+
             default: break;
         }
     }
@@ -50,7 +57,7 @@ public class UserServlet extends HttpServlet {
             taskList = HibernateToDoListDAO.getInstance().getUserTasks(user.getId());
         }
         if(user == null) {
-            res.sendRedirect("login.html");
+            res.sendRedirect("login");
             return;
         }
 
@@ -58,6 +65,19 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("TASKS", taskList);
 
         req.getRequestDispatcher("index.jsp").forward(req, res);
+    }
+
+    private void moveToLoginPage(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+        Cookie[] cookies = req.getCookies();
+        for(Cookie cookie : cookies) {
+            if(cookie.getName().equals("iTaskAppFullName")) {
+                String fullName = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                req.setAttribute("FULL_NAME",fullName);
+                break;
+            }
+        }
+        req.getRequestDispatcher("login.jsp").forward(req, res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -114,9 +134,12 @@ public class UserServlet extends HttpServlet {
             session.setMaxInactiveInterval(isRememberMe? ONE_YEAR : 0);
             session.setAttribute("iTaskAppUser", signedUser);
 
+            String fullName = signedUser.getFirstName() + " " + signedUser.getLastName();
+            Cookie newCookie = new Cookie("iTaskAppFullName", URLEncoder.encode(fullName, "UTF-8"));
+            res.addCookie(newCookie);
             res.setHeader("IS_VERIFY", "1");
         }
-        catch (TodoListException e) {
+        catch (TodoListException | UnsupportedEncodingException e) {
             res.setHeader("IS_VERIFY", "0");
             res.setHeader("ERROR", e.getMessage());
         }
@@ -125,15 +148,5 @@ public class UserServlet extends HttpServlet {
     private void logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-    }
-
-    private void redirectToHomePage(HttpServletRequest req, HttpServletResponse res) {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-        try {
-            dispatcher.forward(req, res);
-        }
-        catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
     }
 }
