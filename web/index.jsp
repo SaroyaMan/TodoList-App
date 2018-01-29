@@ -65,9 +65,6 @@
                             <a class="nav-link" href="task"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
                         </li>
                     </ul>
-                    <%--<span class="navbar-text ml-auto text-info font-weight-bold">--%>
-                        <%--Welcome <%= user.getFirstName() + " " + user.getLastName()%>!--%>
-                    <%--</span>--%>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>

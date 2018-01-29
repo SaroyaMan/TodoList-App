@@ -18,6 +18,13 @@ public class Task {
         this.description = description;
     }
 
+    public Task(int id, int userId, String name, String description) {
+        this.id = id;
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+    }
+
     public Task() {}
 
     @Id

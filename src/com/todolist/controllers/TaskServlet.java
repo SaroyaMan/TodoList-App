@@ -24,7 +24,7 @@ public class TaskServlet extends HttpServlet {
     }
 
     // will be used for create or update a task
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
         // Get parameters from request
         String name = req.getParameter("name");
@@ -59,17 +59,13 @@ public class TaskServlet extends HttpServlet {
 
         if(taskId != -1) {
             theTask = toDoListDAO.getTaskById(taskId);
-            if(theTask.getUserId() != user.getId()) {
-                theTask = null;
-            }
         }
-        if(theTask == null) {
-            theTask = new Task(-1, "", "");
+        if(theTask == null || theTask.getUserId() != user.getId()) {
+            theTask = new Task(-1, -1, "", "");
         }
 
         req.setAttribute("USER", user);
         req.setAttribute("TASK", theTask);
-
         req.getRequestDispatcher("task_form.jsp").forward(req, res);
     }
 

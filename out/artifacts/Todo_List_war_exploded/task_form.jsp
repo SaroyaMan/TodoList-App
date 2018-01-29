@@ -75,7 +75,7 @@
         </header>
         <main>
             <div class="container-fluid">
-                <h2><%= task == null ? "Create a new task" : "Update Task - " + task.getName()%></h2>
+                <h2><%= task.getId() == -1 ? "Create a new task" : "Update Task - " + task.getName()%></h2>
                 <form action="task" method="POST">
                     <input type="hidden" name="userId" value="<%=user.getId()%>">
                     <input type="hidden" name="taskId" value="<%=task.getId()%>">

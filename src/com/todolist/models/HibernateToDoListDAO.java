@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class HibernateToDoListDAO implements IToDoListDAO {
@@ -221,7 +222,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             return theTask;
         }
 
-        catch(HibernateException e) {
+        catch(HibernateException | NoResultException e) {
             session.getTransaction().rollback();
             return null;
         }
