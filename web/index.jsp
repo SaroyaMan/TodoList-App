@@ -43,6 +43,7 @@
         <link rel="stylesheet" href="assets/css/stylesheet.css">
         <link rel="stylesheet" href="assets/utils/css/loader.css">
         <script src="assets/utils/scripts/toast.js"></script>
+        <script src="assets/utils/scripts/modal.js"></script>
         <script src="assets/scripts/app.js"></script>
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
@@ -87,14 +88,16 @@
                     </thead>
                     <tbody>
                     <%
+                        int index = 0;
                         for(Task t : taskList) {
-                            out.println("<tr>");
-                            out.println("<th scopr='row'>" + t.getId() + "</th>");
-                            out.println("<td>" + t.getName() + "</td>");
-                            out.println("<td>" + t.getDescription() + "</td>");
-                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ")'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
-                            out.println("| <a href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
+                            out.println("<tr onclick='displayModal("+ index +", event)'>");
+                            out.println("<th scope='row' class='rowId'>" + t.getId() + "</th>");
+                            out.println("<td class='rowName'>" + t.getName() + "</td>");
+                            out.println("<td class='rowDescription'>" + t.getDescription() + "</td>");
+                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event)'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
+                            out.println("| <a onclick='load(event)' href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");
+                            ++index;
                         }
                     %>
                     </tbody>
@@ -119,6 +122,29 @@
 
         <div id="loaderContent">
             <div id="loader"></div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button hidden data-toggle="modal" data-target="#taskModal"></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Name...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Description...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -12,6 +12,13 @@ public class Task {
     private String name;
     private String description;
 
+    // Used for Null-Object pattern
+    private static Task defaultTask = new Task(-1, -1, "", "");
+
+    public static Task getDefaultTask() {
+        return defaultTask;
+    }
+
     public Task(int userId, String name, String description) {
         this.userId = userId;
         this.name = name;

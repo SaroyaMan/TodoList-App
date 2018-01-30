@@ -91,16 +91,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             // start a transaction
             session.beginTransaction();
 
-            List<User> users = (List<User>) session.createQuery("FROM User u WHERE u.email = :email")
+            user = (User) session.createQuery("FROM User u WHERE u.email = :email")
                     .setParameter("email", email)
-                    .getResultList();
-
-
-            if(users == null || users.isEmpty()) {
-                throw new TodoListException("User is not exist");
-            }
-
-            user = users.get(0);
+                    .getSingleResult();
 
             session.getTransaction().commit();
 
@@ -115,6 +108,9 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         }
         catch(HibernateException e) {
             throw new TodoListException(e.getMessage());
+        }
+        catch(NoResultException e) {
+            throw new TodoListException("User is not exist");
         }
         finally {
             closeSession(session);
