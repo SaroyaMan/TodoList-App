@@ -10,14 +10,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/css/stylesheet.css" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/assets/css/stylesheet.css" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/task_form.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Todo_List_war_exploded/task_form.jsp" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" afterPath="$PROJECT_DIR$/web/assets/css/auth_stylesheet.css" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/stylesheet.css" afterPath="$PROJECT_DIR$/web/assets/css/stylesheet.css" />
-      <change beforePath="$PROJECT_DIR$/web/assets/images/logo.png" afterPath="$PROJECT_DIR$/web/assets/images/logo.png" />
-      <change beforePath="$PROJECT_DIR$/web/assets/images/logo_icon.png" afterPath="$PROJECT_DIR$/web/assets/images/logo_icon.png" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/web/login.jsp" afterPath="$PROJECT_DIR$/web/login.jsp" />
-      <change beforePath="$PROJECT_DIR$/web/register.html" afterPath="$PROJECT_DIR$/web/register.html" />
-      <change beforePath="$PROJECT_DIR$/web/task_form.jsp" afterPath="$PROJECT_DIR$/web/task_form.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -691,7 +683,7 @@
       <workItem from="1516797019566" duration="3405000" />
       <workItem from="1516895505226" duration="34000" />
       <workItem from="1517073380823" duration="2008000" />
-      <workItem from="1517249979155" duration="17893000" />
+      <workItem from="1517249979155" duration="17903000" />
     </task>
     <task id="LOCAL-00001" summary="Fix update task">
       <created>1517250015399</created>
@@ -714,11 +706,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517307468817</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adding a new column: Is done for Task">
+      <created>1517320293003</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1517320293003</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110227000" />
+    <option name="totallyTimeSpent" value="110237000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
