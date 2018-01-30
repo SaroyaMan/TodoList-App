@@ -83,6 +83,7 @@
                         <th>#</th>
                         <th><i class="fa fa-tags" aria-hidden="true"></i> Name</th>
                         <th><i class="fa fa-info-circle" aria-hidden="true"></i> Description</th>
+                        <th><i class="fa fa-check-square-o" aria-hidden="true"></i> Is Done</th>
                         <th><i class="fa fa-cogs" aria-hidden="true"></i> Action</th>
                     </tr>
                     </thead>
@@ -93,7 +94,8 @@
                             out.println("<tr onclick='displayModal("+ index +", event)'>");
                             out.println("<th scope='row' class='rowId'>" + t.getId() + "</th>");
                             out.println("<td class='rowName'>" + t.getName() + "</td>");
-                            out.println("<td class='rowDescription'>" + t.getDescription() + "</td>");
+                            out.println("<td style='max-width: 500px;' class='rowDescription d-inline-block text-truncate'>" + t.getDescription() + "</td>");
+                            out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event)'" + " class='fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'></td>");
                             out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event)'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
                             out.println("| <a onclick='load(event)' href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");

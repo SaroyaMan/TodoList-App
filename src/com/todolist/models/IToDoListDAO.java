@@ -15,4 +15,6 @@ public interface IToDoListDAO {
     Task createOrUpdateTask(Task newTask);
     void removeTask(int taskId);
     Task getTaskById(int taskId);
+
+    boolean toggleDoneTask(int taskId);
 }

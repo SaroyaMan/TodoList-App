@@ -8,6 +8,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.todolist.models.data.Task</class>
         <class>com.todolist.models.data.User</class>
+        <class>com.todolist.models.data.Tasks</class>
+        <class>com.todolist.models.data.Users</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://den1.mysql1.gear.host:3306/todolist1"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

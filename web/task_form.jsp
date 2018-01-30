@@ -76,17 +76,17 @@
         <main>
             <div class="container-fluid">
                 <h2><%= task.getId() == -1 ? "Create a new task" : "Update Task - " + task.getName()%></h2>
-                <form action="task" method="POST">
+                <form id="taskForm" action="task" method="POST">
                     <input type="hidden" name="userId" value="<%=user.getId()%>">
                     <input type="hidden" name="taskId" value="<%=task.getId()%>">
                     <div class="form-group">
                         <label for="name">Task Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<%=task.getName()%>"
+                        <input required type="text" class="form-control" id="name" name="name" value="<%=task.getName()%>"
                                placeholder="Insert task name...">
                     </div>
                     <div class="form-group">
                         <label for="description">Task Description</label>
-                        <textarea class="form-control" id="description" name="description"
+                        <textarea required class="form-control" id="description" name="description"
                                   rows="4" placeholder="Insert task description..."><%=task.getDescription()%></textarea>
                     </div>
                     <button type="submit" class="btn btn-info">Submit</button>

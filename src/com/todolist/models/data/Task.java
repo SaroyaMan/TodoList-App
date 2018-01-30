@@ -7,32 +7,44 @@ import java.util.Objects;
 @Table(name = "tasks", schema = "todolist1")
 
 public class Task {
+    // Used for Null-Object pattern
+    private static Task defaultTask = new Task(-1, -1, "", "", false);
     private int id;
     private int userId;
     private String name;
     private String description;
+    private boolean isDone;
 
-    // Used for Null-Object pattern
-    private static Task defaultTask = new Task(-1, -1, "", "");
+    public Task(int userId, String name, String description, boolean isDone) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.isDone = isDone;
+    }
+
+    public Task(int id, int userId, String name, String description, boolean isDone) {
+        this.id = id;
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.isDone = isDone;
+    }
+
+    public Task() {}
 
     public static Task getDefaultTask() {
         return defaultTask;
     }
 
-    public Task(int userId, String name, String description) {
-        this.userId = userId;
-        this.name = name;
-        this.description = description;
+    @Basic
+    @Column(name = "isDone")
+    public boolean getIsDone() {
+        return isDone;
     }
 
-    public Task(int id, int userId, String name, String description) {
-        this.id = id;
-        this.userId = userId;
-        this.name = name;
-        this.description = description;
+    public void setIsDone(boolean isDone) {
+        this.isDone = isDone;
     }
-
-    public Task() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -75,6 +87,16 @@ public class Task {
         this.description = description;
     }
 
+//    @Basic
+//    @Column(name = "isDone")
+//    public boolean getIsDone() {
+//        return isDone;
+//    }
+//
+//    public void set(String description) {
+//        this.description = description;
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,7 +105,8 @@ public class Task {
         return id == task.id &&
                 userId == task.userId &&
                 Objects.equals(name, task.name) &&
-                Objects.equals(description, task.description);
+                Objects.equals(description, task.description) &&
+                isDone == task.isDone;
     }
 
     @Override

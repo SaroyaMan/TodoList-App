@@ -33,6 +33,20 @@ let deleteTask = function (taskId, e) {
     });
 };
 
+let toggleTaskDone = function(taskId, e) {
+    load(e);
+    $.ajax({
+        type: "PUT",
+        url: "/task",
+        data: "taskId=" + taskId,
+        cache: true,
+        success: function(response){},
+        error: function(response) {},
+    }).done(function (data, textStatus, xhr) {
+        location.reload();
+    });
+};
+
 let load = function(e) {
     loader.fadeIn(300);
     e.stopPropagation();
@@ -55,6 +69,8 @@ $("document").ready(function() {       //Main
 
     loader = $("#loaderContent");
 
-    //let toast = new Toast();
+    $("#taskForm").submit(function () {
+        loader.fadeIn(300);
+    });
 
 });

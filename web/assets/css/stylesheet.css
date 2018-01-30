@@ -10,6 +10,10 @@ tbody tr {
     cursor: pointer;
 }
 
+td, th {
+    text-align: center;
+}
+
 input, textarea {
     width: 50% !important;
 }

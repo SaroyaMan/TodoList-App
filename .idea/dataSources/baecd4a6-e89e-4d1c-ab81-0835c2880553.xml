@@ -894,35 +894,39 @@
     <table id="224" parent="3" name="users">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="225" parent="3" name="users_tasks">
-      <Engine>InnoDB</Engine>
-    </table>
-    <column id="226" parent="223" name="id">
+    <column id="225" parent="223" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="223" name="userId">
+    <column id="226" parent="223" name="userId">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="228" parent="223" name="name">
+    <column id="227" parent="223" name="name">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_bin</Collation>
     </column>
-    <column id="229" parent="223" name="description">
+    <column id="228" parent="223" name="description">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_bin</Collation>
+    </column>
+    <column id="229" parent="223" name="isDone">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
     </column>
     <index id="230" parent="223" name="userIdIndex">
       <ColNames>userId</ColNames>
@@ -976,58 +980,5 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="225" name="userId">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="240" parent="225" name="taskId">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="241" parent="225" name="User_id">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="242" parent="225" name="tasks_id">
-      <Position>4</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="243" parent="225" name="UK_ntgmxrnn2x6w47tltwj5d1fyt">
-      <ColNames>tasks_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="244" parent="225" name="FKmtsvr350v4kfsc6c5cnoeyt2j">
-      <ColNames>User_id</ColNames>
-    </index>
-    <key id="245" parent="225" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>userId
-taskId</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="246" parent="225" name="UK_ntgmxrnn2x6w47tltwj5d1fyt">
-      <ColNames>tasks_id</ColNames>
-      <UnderlyingIndexName>UK_ntgmxrnn2x6w47tltwj5d1fyt</UnderlyingIndexName>
-    </key>
-    <foreign-key id="247" parent="225" name="FKmtsvr350v4kfsc6c5cnoeyt2j">
-      <ColNames>User_id</ColNames>
-      <RefSchemaName>todolist1</RefSchemaName>
-      <RefTableName>users</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="248" parent="225" name="FKphskmyjd10svfk7iwnda2rib0">
-      <ColNames>tasks_id</ColNames>
-      <RefSchemaName>todolist1</RefSchemaName>
-      <RefTableName>tasks</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
   </database-model>
 </dataSource>
