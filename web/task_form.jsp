@@ -47,19 +47,19 @@
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
 
-        <title>Todo List Application</title>
+        <title>iTask - Task</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" id="logo" href="home"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.jsp"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
+                            <a class="nav-link" href="home"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>

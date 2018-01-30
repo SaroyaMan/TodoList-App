@@ -47,19 +47,19 @@
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
 
-        <title>Todo List Application</title>
+        <title>iTask - Task</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" id="logo" href="home"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.jsp"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
+                            <a class="nav-link" href="home"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
@@ -76,17 +76,17 @@
         <main>
             <div class="container-fluid">
                 <h2><%= task.getId() == -1 ? "Create a new task" : "Update Task - " + task.getName()%></h2>
-                <form action="task" method="POST">
+                <form id="taskForm" action="task" method="POST">
                     <input type="hidden" name="userId" value="<%=user.getId()%>">
                     <input type="hidden" name="taskId" value="<%=task.getId()%>">
                     <div class="form-group">
                         <label for="name">Task Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<%=task.getName()%>"
+                        <input required type="text" class="form-control" id="name" name="name" value="<%=task.getName()%>"
                                placeholder="Insert task name...">
                     </div>
                     <div class="form-group">
                         <label for="description">Task Description</label>
-                        <textarea class="form-control" id="description" name="description"
+                        <textarea required class="form-control" id="description" name="description"
                                   rows="4" placeholder="Insert task description..."><%=task.getDescription()%></textarea>
                     </div>
                     <button type="submit" class="btn btn-info">Submit</button>

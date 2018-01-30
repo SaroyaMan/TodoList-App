@@ -1,5 +1,14 @@
 header, div, nav, main, section, aside, article {display: block}
 
+#logo {
+    display: inline-block;
+    background: url("/assets/images/logo.png") no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -8,6 +17,10 @@ footer {
 
 tbody tr {
     cursor: pointer;
+}
+
+td, th {
+    text-align: center;
 }
 
 input, textarea {
