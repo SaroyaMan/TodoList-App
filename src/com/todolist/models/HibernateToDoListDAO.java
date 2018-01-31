@@ -127,7 +127,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             // start a transaction
             session.beginTransaction();
 
-            List tasks = session.createQuery("FROM Task t WHERE t.userId = :userId")
+            List tasks = session.createQuery("FROM Task t WHERE t.userId = :userId ORDER BY t.isDone")
                     .setParameter("userId", userId)
                     .getResultList();
 

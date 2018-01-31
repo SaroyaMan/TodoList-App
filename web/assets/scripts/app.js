@@ -73,4 +73,8 @@ $("document").ready(function() {       //Main
         loader.fadeIn(300);
     });
 
+
+    if(window.location.href.match("home")) {
+        $("#taskTable").tablesorter();
+    }
 });

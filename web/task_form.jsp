@@ -47,7 +47,7 @@
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
 
-        <title>iTask - Task</title>
+        <title>iTask - Create Task</title>
     </head>
     <body>
         <header>
@@ -62,7 +62,7 @@
                             <a class="nav-link" href="home"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
+                            <a class="nav-link" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"></i> Create Task</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -89,7 +89,7 @@
                         <textarea required class="form-control" id="description" name="description"
                                   rows="4" placeholder="Insert task description..."><%=task.getDescription()%></textarea>
                     </div>
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info">Save</button>
                 </form>
             </div>
 

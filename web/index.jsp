@@ -44,6 +44,7 @@
         <link rel="stylesheet" href="assets/utils/css/loader.css">
         <script src="assets/utils/scripts/toast.js"></script>
         <script src="assets/utils/scripts/modal.js"></script>
+        <script src="assets/utils/scripts/jquery.tablesorter.min.js"></script>
         <script src="assets/scripts/app.js"></script>
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
@@ -63,7 +64,7 @@
                             <a class="nav-link" href="#"><i class="fa fa-tasks" aria-hidden="true"></i> My Todo List</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="task"><i class="fa fa-thumb-tack" aria-hidden="true"></i> New/Update task</a>
+                            <a class="nav-link" href="task"><i class="fa fa-thumb-tack" aria-hidden="true"></i> Create Task</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -77,10 +78,10 @@
         <main>
             <div class="container-fluid">
                 <h2>My ToDo List</h2>
-                <table class="table table-hover table-striped">
+                <table id="taskTable" class="table table-hover table-striped">
                     <thead class="thead-inverse">
                     <tr>
-                        <th>#</th>
+                        <th># Id</th>
                         <th><i class="fa fa-tags" aria-hidden="true"></i> Name</th>
                         <th><i class="fa fa-info-circle" aria-hidden="true"></i> Description</th>
                         <th><i class="fa fa-check-square-o" aria-hidden="true"></i> Is Done</th>
@@ -94,8 +95,8 @@
                             out.println("<tr onclick='displayModal("+ index +", event)'>");
                             out.println("<th scope='row' class='rowId'>" + t.getId() + "</th>");
                             out.println("<td class='rowName'>" + t.getName() + "</td>");
-                            out.println("<td style='max-width: 500px;' class='rowDescription d-inline-block text-truncate'>" + t.getDescription() + "</td>");
-                            out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event)'" + " class='fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'></td>");
+                            out.println("<td class='rowDescription'>" + t.getDescription().substring(0, t.getDescription().length() > 80 ? 80 : t.getDescription().length()) + (t.getDescription().length() > 80? "..." : "") + "</td>");
+                            out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event)'" + " class='fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'><span class='hiddenText'>" + t.getIsDone()+ "</span></td>");
                             out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event)'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
                             out.println("| <a onclick='load(event)' href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");
