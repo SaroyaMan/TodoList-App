@@ -97,6 +97,10 @@ body {
     font-size: 80%;
 }
 
-
-
-
+#logo {
+    display: block;
+    background: url("/assets/images/logo.png") no-repeat;
+    width: 90px;
+    height: 113px;
+    margin: 30px auto;
+}

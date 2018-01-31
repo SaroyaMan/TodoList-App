@@ -48,12 +48,12 @@
 
         <script src="https://use.fontawesome.com/a5033db61a.js"></script>
 
-        <title>Todo List Application</title>
+        <title>iTask - Home</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" id="logo" href="#"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
