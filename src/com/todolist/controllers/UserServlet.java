@@ -70,11 +70,13 @@ public class UserServlet extends HttpServlet {
     private void moveToLoginPage(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         Cookie[] cookies = req.getCookies();
-        for(Cookie cookie : cookies) {
-            if(cookie.getName().equals("iTaskAppFullName")) {
-                String fullName = URLDecoder.decode(cookie.getValue(), "UTF-8");
-                req.setAttribute("FULL_NAME",fullName);
-                break;
+        if(cookies != null) {
+            for(Cookie cookie : cookies) {
+                if(cookie.getName().equals("iTaskAppFullName")) {
+                    String fullName = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    req.setAttribute("FULL_NAME",fullName);
+                    break;
+                }
             }
         }
         req.getRequestDispatcher("login.jsp").forward(req, res);

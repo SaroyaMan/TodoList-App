@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>iTask - Login</title>
         <link rel="icon" href="assets/images/logo_icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -36,7 +36,7 @@
 
     </head>
     <body>
-        <!--<img src="assets/images/logo.png">-->
+        <a href="#" id=logo></a>
         <div id="authPage">
             <h1>Login</h1>
             <%
@@ -44,7 +44,6 @@
                     out.println("<h5 class='text-info'>Welcome Back " + request.getAttribute("FULL_NAME") + "</h5>");
                 }
             %>
-            <%--<h5 class="text-info">Welcome Back ${FULL_NAME}</h5>--%>
             <form method="POST" autocomplete="off" id="loginForm">
                 <input type="email" class="myTxtInput" name="email" placeholder="Email" required="required" />
                 <input type="password" class="myTxtInput" name="password" placeholder="Password" required="required" />
