@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fb27317e-f0a4-4e0c-8f61-9fa97b724ee3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" afterPath="$PROJECT_DIR$/docs/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -216,7 +215,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="960" />
@@ -672,7 +671,7 @@
       <workItem from="1517073380823" duration="2008000" />
       <workItem from="1517249979155" duration="17903000" />
       <workItem from="1517478737217" duration="682000" />
-      <workItem from="1517479701449" duration="9690000" />
+      <workItem from="1517479701449" duration="9732000" />
     </task>
     <task id="LOCAL-00001" summary="Fix update task">
       <created>1517250015399</created>
@@ -709,14 +708,21 @@
       <option name="project" value="LOCAL" />
       <updated>1517494783840</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update GitPage">
+      <created>1517497303273</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1517497303273</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126641000" />
+    <option name="totallyTimeSpent" value="126683000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39978093" sideWeight="0.49791667" order="7" side_tool="true" content_ui="tabs" />
@@ -764,7 +770,8 @@
     <MESSAGE value="Some refactoring, Adding a new modal when clicking on a specific task" />
     <MESSAGE value="Adding a new column: Is done for Task" />
     <MESSAGE value="Some refactoring, Fix Checked tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some refactoring, Fix Checked tasks" />
+    <MESSAGE value="Update GitPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GitPage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
