@@ -335,12 +335,6 @@
             <path>
               <item name="Todo_List" type="b2602c69:ProjectViewProjectNode" />
               <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="todolist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo_List" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -348,13 +342,6 @@
               <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo_List" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo_List" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -669,7 +656,7 @@
       <workItem from="1517073380823" duration="2008000" />
       <workItem from="1517249979155" duration="17903000" />
       <workItem from="1517478737217" duration="682000" />
-      <workItem from="1517479701449" duration="10076000" />
+      <workItem from="1517479701449" duration="10388000" />
     </task>
     <task id="LOCAL-00001" summary="Fix update task">
       <created>1517250015399</created>
@@ -717,7 +704,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127027000" />
+    <option name="totallyTimeSpent" value="127339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
