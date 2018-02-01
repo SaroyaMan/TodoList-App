@@ -37,8 +37,9 @@
                 crossorigin="anonymous">
         </script>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+        <%--Toast--%>
+        <link rel="stylesheet" href="assets/utils/css/toastr.css">
+        <script src="assets/utils/scripts/toastr.js"></script>
 
         <link rel="stylesheet" href="assets/css/stylesheet.css">
         <link rel="stylesheet" href="assets/utils/css/loader.css">
@@ -93,10 +94,10 @@
                         int index = 0;
                         for(Task t : taskList) {
                             out.println("<tr onclick='displayModal("+ index +", event)'>");
-                            out.println("<th scope='row' class='rowId'>" + t.getId() + "</th>");
+                            out.println("<td scope='row' class='rowId'>" + t.getId() + "</td>");
                             out.println("<td class='rowName'>" + t.getName() + "</td>");
                             out.println("<td class='rowDescription'>" + t.getDescription().substring(0, t.getDescription().length() > 80 ? 80 : t.getDescription().length()) + (t.getDescription().length() > 80? "..." : "") + "</td>");
-                            out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event)'" + " class='fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'><span class='hiddenText'>" + t.getIsDone()+ "</span></td>");
+                            out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event, " + index + ", " + t.getIsDone() + ")'" + " class='rowDone " + index + " fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'><span class='hiddenText'>" + t.getIsDone()+ "</span></td>");
                             out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event)'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
                             out.println("| <a onclick='load(event)' href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");

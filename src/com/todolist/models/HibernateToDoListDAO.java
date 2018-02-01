@@ -6,7 +6,6 @@ import com.todolist.models.data.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 
@@ -22,7 +21,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     // Password encryptor
     private BasicPasswordEncryptor passwordEncryptor;
 
-    private static HibernateToDoListDAO instance;
+    private static HibernateToDoListDAO instance = new HibernateToDoListDAO();
 
     private HibernateToDoListDAO() {
 
@@ -39,7 +38,7 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     }
 
     public static HibernateToDoListDAO getInstance() {
-        return instance == null ? instance = new HibernateToDoListDAO() : instance;
+        return instance;
     }
 
     @Override
@@ -49,7 +48,6 @@ public class HibernateToDoListDAO implements IToDoListDAO {
         Session session = factory.getCurrentSession();
 
         try {
-
             // start a transaction
             session.beginTransaction();
 
@@ -102,16 +100,15 @@ public class HibernateToDoListDAO implements IToDoListDAO {
                 return user;
             }
 
-            else {
-                throw new TodoListException("Email or Password is incorrect");
-            }
+            throw new TodoListException("Email or Password is incorrect");
 
         }
         catch(HibernateException e) {
-            throw new TodoListException(e.getMessage());
+            e.printStackTrace();
+            throw new TodoListException("Error in Server, Please try again");
         }
         catch(NoResultException e) {
-            throw new TodoListException("User is not exist");
+            throw new TodoListException("Email or Password is incorrect");
         }
         finally {
             closeSession(session);
@@ -232,7 +229,6 @@ public class HibernateToDoListDAO implements IToDoListDAO {
     public boolean toggleDoneTask(int taskId) {
         // create a session
         Session session = factory.getCurrentSession();
-        Transaction transaction = session.getTransaction();
         try {
             // start a transaction
             session.beginTransaction();
@@ -245,12 +241,12 @@ public class HibernateToDoListDAO implements IToDoListDAO {
             theTask.setIsDone(!theTask.getIsDone());
 
             // commit transaction
-            transaction.commit();
+            session.getTransaction().commit();
 
             return true;
         }
         catch(HibernateException | NoResultException e) {
-            transaction.rollback();
+            session.getTransaction().rollback();
             return false;
         }
         finally {

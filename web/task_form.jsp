@@ -37,8 +37,9 @@
                 crossorigin="anonymous">
         </script>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+        <%--Toast--%>
+        <link rel="stylesheet" href="assets/utils/css/toastr.css">
+        <script src="assets/utils/scripts/toastr.js"></script>
 
         <link rel="stylesheet" href="assets/css/stylesheet.css">
         <link rel="stylesheet" href="assets/utils/css/loader.css">
@@ -89,7 +90,7 @@
                         <textarea required class="form-control" id="description" name="description"
                                   rows="4" placeholder="Insert task description..."><%=task.getDescription()%></textarea>
                     </div>
-                    <button type="submit" class="btn btn-info">Save</button>
+                    <button type="submit" class="btn btn-info">Save Task</button>
                 </form>
             </div>
 

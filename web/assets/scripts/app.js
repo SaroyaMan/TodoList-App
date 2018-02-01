@@ -3,6 +3,7 @@
 let modal = null;
 let tableElement = null;
 let loader = null;
+let indexTables = {};
 
 let logout = function () {
     // Sending the form data
@@ -33,8 +34,22 @@ let deleteTask = function (taskId, e) {
     });
 };
 
-let toggleTaskDone = function(taskId, e) {
+let toggleTaskDone = function(taskId, e, index, isDone) {
     load(e);
+    e.stopPropagation();
+    if(indexTables[index] == null)
+        indexTables[index] = !isDone;
+
+    indexTables[index] = !indexTables[index];
+    let currRow = $("i.rowDone." + index);
+
+    if(indexTables[index]) {
+        currRow.removeClass('fa-check-square-o').addClass('fa-square-o');
+    }
+    else {
+        currRow.removeClass('fa-square-o').addClass('fa-check-square-o');
+    }
+
     $.ajax({
         type: "PUT",
         url: "/task",
@@ -43,7 +58,8 @@ let toggleTaskDone = function(taskId, e) {
         success: function(response){},
         error: function(response) {},
     }).done(function (data, textStatus, xhr) {
-        location.reload();
+
+        loader.fadeOut(300);
     });
 };
 

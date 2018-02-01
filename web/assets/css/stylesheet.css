@@ -34,3 +34,22 @@ input, textarea {
 .hiddenText {
     font-size: 0;
 }
+
+th:after {
+    font-family: FontAwesome;
+    content: "\f0dc";
+    margin-left: 3px;
+    font-size: 60%;
+}
+
+.headerSortUp:after {
+    font-family: FontAwesome;
+    content: "\f0de";
+    margin-left: 3px;
+}
+
+.headerSortDown:after {
+    font-family: FontAwesome;
+    content: '\f0dd';
+    margin-left: 3px;
+}
