@@ -20,8 +20,9 @@ let logout = function () {
     return false;
 };
 
-let deleteTask = function (taskId, e) {
+let deleteTask = function (taskId, e, index) {
     load(e);
+    //$("tr.taskRow." + index).remove();
 
     $.ajax({
         type: "DELETE",
@@ -30,7 +31,8 @@ let deleteTask = function (taskId, e) {
         success: function(response){},
         error: function(response) {},
     }).done(function (data, textStatus, xhr) {
-        location.reload();
+        loader.fadeOut(300);
+        $("tr.taskRow." + index).remove();
     });
 };
 
