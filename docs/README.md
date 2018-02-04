@@ -1,4 +1,4 @@
-## ToDo List Web Application For JAVA EE Course (Shenkar, 2018)
+## ToDo List Web Application For JAVA EE Course
 
 ### Info
 This project made for course JAVA EE Course in Shenkar, **by Yoav Saroya & Amit Shmuel**.
