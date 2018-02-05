@@ -1,7 +1,8 @@
 "use strict";
 
 let modal = null;
-let tableElement = null;
+let table = null;
+let tableBody = null;
 let loader = null;
 let indexTables = {};
 
@@ -38,7 +39,6 @@ let deleteTask = function (taskId, e, index) {
 
 let toggleTaskDone = function(taskId, e, index, isDone) {
     load(e);
-    e.stopPropagation();
     if(indexTables[index] == null)
         indexTables[index] = !isDone;
 
@@ -47,10 +47,16 @@ let toggleTaskDone = function(taskId, e, index, isDone) {
 
     if(indexTables[index]) {
         currRow.removeClass('fa-check-square-o').addClass('fa-square-o');
+        currRow.find(".hiddenText")[0].innerText = 'false';
     }
     else {
         currRow.removeClass('fa-square-o').addClass('fa-check-square-o');
+        currRow.find(".hiddenText")[0].innerText = 'true';
     }
+    //$("table").trigger("updateAll", [ resort, callback ]);
+    //table.tablesorter();
+    table.trigger("update");
+    table.trigger("appendCache");
 
     $.ajax({
         type: "PUT",
@@ -70,15 +76,12 @@ let load = function(e) {
     e.stopPropagation();
 };
 
-let displayModal = function(rowNum, e) {
+let displayModal = function(taskId, e) {
 
-    if(modal == null) {
-        modal = new Modal($("#taskModal"));
-    }
-    tableElement = $("tbody");
-    let id = tableElement.find("tr .rowId")[+rowNum].innerText;
-    let name = tableElement.find("tr .rowName")[+rowNum].innerText;
-    let des = tableElement.find("tr .rowDescription")[+rowNum].innerText;
+    tableBody = $("tbody");
+    let id = tableBody.find("tr." + taskId + " .rowId")[0].innerText;
+    let name = tableBody.find("tr." + taskId + " .rowName")[0].innerText;
+    let des = tableBody.find("tr." + taskId + " .rowDescription")[0].innerText;
     modal.show(id + ' - ' + name, des);
 };
 
@@ -93,6 +96,9 @@ $("document").ready(function() {       //Main
 
 
     if(window.location.href.match("home")) {
-        $("#taskTable").tablesorter();
+        table = $("#taskTable");
+        table.tablesorter();
+
+        modal = new Modal($("#taskModal"));
     }
 });

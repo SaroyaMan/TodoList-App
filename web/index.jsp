@@ -93,7 +93,7 @@
                     <%
                         int index = 0;
                         for(Task t : taskList) {
-                            out.println("<tr class='taskRow " + index + "' onclick='displayModal("+ index +", event)'>");
+                            out.println("<tr class='taskRow " + t.getId() + "' onclick='displayModal("+ t.getId() +", event)'>");
                             out.println("<td scope='row' class='rowId'>" + t.getId() + "</td>");
                             out.println("<td class='rowName'>" + t.getName() + "</td>");
                             out.println("<td class='rowDescription'>" + t.getDescription().substring(0, t.getDescription().length() > 80 ? 80 : t.getDescription().length()) + (t.getDescription().length() > 80? "..." : "") + "</td>");
