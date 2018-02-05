@@ -98,7 +98,7 @@
                             out.println("<td class='rowName'>" + t.getName() + "</td>");
                             out.println("<td class='rowDescription'>" + t.getDescription().substring(0, t.getDescription().length() > 80 ? 80 : t.getDescription().length()) + (t.getDescription().length() > 80? "..." : "") + "</td>");
                             out.println("<td class='rowDone'><i " + "onclick='toggleTaskDone(" + t.getId() + ", event, " + index + ", " + t.getIsDone() + ")'" + " class='rowDone " + index + " fa " +(t.getIsDone()? "fa-check-square-o" : "fa-square-o")+ "'><span class='hiddenText'>" + t.getIsDone()+ "</span></td>");
-                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event, " + index + ")'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
+                            out.println("<td><a href=# class='text-danger font-weight-bold' onclick='deleteTask(" + t.getId() + ", event, )'><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> DELETE</a>");
                             out.println("| <a onclick='load(event)' href='task?taskId=" + t.getId() + "'class='text-info font-weight-bold'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> UPDATE</a></td>");
                             out.println("</tr>");
                             ++index;

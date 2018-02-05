@@ -21,7 +21,7 @@ let logout = function () {
     return false;
 };
 
-let deleteTask = function (taskId, e, index) {
+let deleteTask = function (taskId, e) {
     load(e);
     //$("tr.taskRow." + index).remove();
 
@@ -33,7 +33,7 @@ let deleteTask = function (taskId, e, index) {
         error: function(response) {},
     }).done(function (data, textStatus, xhr) {
         loader.fadeOut(300);
-        $("tr.taskRow." + index).remove();
+        $("tr.taskRow." + taskId).remove();
     });
 };
 

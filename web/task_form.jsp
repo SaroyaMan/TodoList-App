@@ -79,6 +79,7 @@
                 <h2><%= task.getId() == -1 ? "Create a new task" : "Update Task "+ task.getId() + " - " + task.getName()%></h2>
                 <form id="taskForm" action="task" method="POST">
                     <input type="hidden" name="userId" value="<%=user.getId()%>">
+                    <input type="hidden" name="isDone" value="<%=task.getIsDone()%>">
                     <input type="hidden" name="taskId" value="<%=task.getId()%>">
                     <div class="form-group">
                         <label for="name">Task Name</label>
